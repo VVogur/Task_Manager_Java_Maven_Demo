@@ -69,7 +69,7 @@ public class Main {
         System.out.println("Enter '4' to delete task");
         System.out.println("Enter '5' to open some Windows applications");
         System.out.println("Enter '6' to set an alarm");
-        System.out.println("Write 'q' to exit");
+        System.out.println("Enter 'q' to exit");
         //Тут вывод строк главного меню с вариантами действий
     }
 }
