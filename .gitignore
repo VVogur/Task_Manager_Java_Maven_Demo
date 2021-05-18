@@ -32,3 +32,4 @@ src/task3_training/
 src/qwe/
 .idea/
 *.MF
+target/
