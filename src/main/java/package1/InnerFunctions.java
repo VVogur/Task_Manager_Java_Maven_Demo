@@ -15,7 +15,7 @@ public class InnerFunctions {
     public void loadFromFile() {
 
         listOfTasks.clear();
-        try (Scanner sc = new Scanner(new File("src/main/java/package1/qweqwe1.txt"))) {
+        try (Scanner sc = new Scanner(new File("src/main/resources/qweqwe1.txt"))) {
             while (sc.hasNextLine()) {
                 String str = sc.nextLine();
                 String[] arr = str.split(" ");
@@ -33,16 +33,16 @@ public class InnerFunctions {
             e.printStackTrace();
         }
         Collections.sort(listOfTasks);
-        System.out.println(listOfTasks);
+        //System.out.println(listOfTasks);
     }
 
     public void writeToFile() {
-        System.out.println("file with DataBase was updated");
+        //System.out.println("file with DataBase was updated");
 
-        File file = new File("src/package1/qweqwe1.txt");
+        File file = new File("src/main/resources/qweqwe1.txt");
         file.delete();
 
-        try (FileWriter writer = new FileWriter("src/main/java/package1/qweqwe1.txt")) {
+        try (FileWriter writer = new FileWriter("src/main/resources/qweqwe1.txt")) {
             for (Task task : listOfTasks) {
                 writer.write(task.toStringFileFormat() + "\n");
             }
@@ -71,7 +71,7 @@ public class InnerFunctions {
                 gc = new GregorianCalendar(2021, month-1, day, hour, minute);
                 break;
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                System.out.println("Wrong, try again please");
+                System.out.println("Wrong input, try again please");
             }
 
         }
@@ -113,10 +113,10 @@ public class InnerFunctions {
     }
 
     public void editTask() {
-        System.out.println("(type '0' to return to main menu)\n");
+        System.out.println("(Enter '0' to return to main menu)\n");
 
         int index = printAllTasks();
-        System.out.println("\nType in number of task, that you want to change");
+        System.out.println("\nEnter number of task, that you want to edit");
         String str = scan.nextLine();
         if (str.equals("0")) return;
         int numberOfTaskToEdit;
@@ -125,7 +125,7 @@ public class InnerFunctions {
             if(numberOfTaskToEdit <1 || numberOfTaskToEdit > index)
                 throw new NumberFormatException();
         } catch (NumberFormatException e){
-            System.out.println("wrong input");
+            System.out.println("Wrong input");
             return;
         }
 
@@ -136,20 +136,22 @@ public class InnerFunctions {
             }
             if (index == numberOfTaskToEdit) {
                 System.out.println("Editing task: \n" + task);
-                System.out.println("Do you want to change date('1') or description('2') of task?");
+                System.out.println("Do you want to change date('1') or description('2') of a task?");
                 String answer = scan.nextLine();
                 switch (answer) {
                     case "1": {
-                        System.out.println("Type in new date and time of a task: mm.dd hh:mm");
+                        System.out.println("Enter new date and time of a task: mm.dd hh:mm");
                         Calendar gc = createDateOfTask();
                         if (gc == null) return;
                         task.setCalendar(gc);
+                        System.out.println("Task was successfully edited");
                         break;
                     }
                     case "2": {
-                        System.out.println("Type in new task description");
+                        System.out.println("Enter new task description");
                         String info = scan.nextLine();
                         task.setInfo(info);
+                        System.out.println("Task was successfully edited");
                         break;
                     }
                     case "0": {
@@ -164,35 +166,34 @@ public class InnerFunctions {
 
         Collections.sort(listOfTasks);
         writeToFile();
-        System.out.println("method editTask finished");
     }
 
     public void addTask() {
-        System.out.println("(type '0' to return to main menu)\n");
-        System.out.println("Type in date and time of a task: mm.dd hh:mm");
+        System.out.println("(Enter '0' to return to main menu)\n");
+        System.out.println("Enter date and time of a task: mm.dd hh:mm");
 
         Calendar gc = createDateOfTask();
         if (gc == null) return;
 
-        System.out.println("Type in task description");
+        System.out.println("Enter task description");
         String info = scan.nextLine();
         listOfTasks.add(new Task(info, gc));
         Collections.sort(listOfTasks);
         writeToFile();
-        System.out.println("method addTask finished");
+        System.out.println("New task was successfully created");
     }
 
     public void deleteTask() {
 
         int index = printAllTasks();
-        System.out.println("\nType in number of task, that you want to delete");
+        System.out.println("\nEnter number of task, that you want to delete");
         String str = scan.nextLine();
         int numberOfTaskToDelete;
         try{
             numberOfTaskToDelete = Integer.parseInt(str);
             if(numberOfTaskToDelete <1 || numberOfTaskToDelete > index)
                 throw new NumberFormatException();
-            } catch (NumberFormatException e){
+        } catch (NumberFormatException e){
             System.out.println("Wrong input");
             return;
         }
@@ -209,6 +210,7 @@ public class InnerFunctions {
                     case "y": {
                         listOfTasks.remove(task);
                         writeToFile();
+                        System.out.println("Task was successfully deleted");
                         return;
                     }
                     case "n": {
@@ -220,7 +222,6 @@ public class InnerFunctions {
                 }
             }
         }
-        System.out.println("method deleteTask finished");
     }
 
 }
