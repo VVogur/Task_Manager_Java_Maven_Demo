@@ -10,7 +10,7 @@ public class Main {
         Alarm w = new Alarm();
         PodKapotom podKapotom = new PodKapotom(new InnerFunctions());
         System.out.println("\nHello dear friend, I am a console task manager.\n" +
-                "Hope you will enjoy using this app.");
+                "Hope you will enjoy using this app ;)");
         while (true) {
             printMainMenu(); // тут похимичить надо, чтобы красиво все выводилось на экран, когда приходим в главое меню
             String str = sc.nextLine();
@@ -48,11 +48,11 @@ public class Main {
                     GetWeather q = new GetWeather();
                     q.weather();
                 }
-                case "exit": {
+                case "q": {
                     return;
                 }
                 default: {
-                    System.out.println("Wrong, try again please");
+                    System.out.println("Wrong input, try again please");
                 }
             }
 
@@ -61,16 +61,15 @@ public class Main {
 
     private static void printMainMenu() {
 
-        System.out.println("\n        Main menu\n");
+        System.out.println("\n        Main menu");
 
-        System.out.println("Enter '1' for show tasks");
-        System.out.println("Enter '2' for add tasks");
-        System.out.println("Enter '3' for edit tasks");
-        System.out.println("Enter '4' for delete tasks");
-        System.out.println("Enter '5' for open another app");
-        System.out.println("Enter '6' for add pop-up notification");
-        System.out.println("Enter '7' for show weather");
-        System.out.println("Write 'exit' to turn off app");
+        System.out.println("Enter '1' to see available tasks");
+        System.out.println("Enter '2' to create new task");
+        System.out.println("Enter '3' to edit task");
+        System.out.println("Enter '4' to delete task");
+        System.out.println("Enter '5' to open some Windows applications");
+        System.out.println("Enter '6' to set an alarm");
+        System.out.println("Write 'q' to exit");
         //Тут вывод строк главного меню с вариантами действий
     }
 }
