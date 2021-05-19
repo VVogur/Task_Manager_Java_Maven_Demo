@@ -15,7 +15,7 @@ public class InnerFunctions {
     public void loadFromFile() {
 
         listOfTasks.clear();
-        try (Scanner sc = new Scanner(new File("src/main/resources/qweqwe1.txt"))) {
+        try (Scanner sc = new Scanner(new File("qweqwe1.txt"))) {
             while (sc.hasNextLine()) {
                 String str = sc.nextLine();
                 String[] arr = str.split(" ");
