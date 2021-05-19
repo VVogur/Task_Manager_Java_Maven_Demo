@@ -45,10 +45,6 @@ public class Main {
                 }
                 case "7":{
                     WeatherManager.start();
-//                            weather = new WeatherManager();
-//                    weather.start();
-//                    weather.showWeatherMenu();
-//                    weather.getCurrentWeather();
                     break;
                 }
                 case "q": {

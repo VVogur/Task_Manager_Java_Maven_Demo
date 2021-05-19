@@ -48,7 +48,6 @@ public class WeatherManager {
         } else if (userInput.equals("1")) {
             getCurrentWeather();
         }
-
     }
 
     public static void getCurrentWeather() {
