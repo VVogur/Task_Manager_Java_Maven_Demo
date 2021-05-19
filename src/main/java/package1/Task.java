@@ -30,9 +30,9 @@ public class Task implements Comparable<Task> {
 
     @Override
     public String toString() {
-        return (calendar.get(Calendar.MONTH) + 1) + "." + calendar.get(Calendar.DAY_OF_MONTH) + " " +
-                calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) +
-                "   Task description: \"" + info + "\"";
+        return String.format("%02d.%02d %02d:%02d   Task description: \"%s\"", (calendar.get(Calendar.MONTH) + 1),
+                calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE), info);
     }
 
     public String toStringFileFormat() {

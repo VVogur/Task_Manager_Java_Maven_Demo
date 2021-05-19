@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InnerFunctions {
 
@@ -15,7 +17,7 @@ public class InnerFunctions {
     public void loadFromFile() {
 
         listOfTasks.clear();
-        try (Scanner sc = new Scanner(new File("qweqwe1.txt"))) {
+        try (Scanner sc = new Scanner(new File("C:\\qweqwe1.txt"))) {
             while (sc.hasNextLine()) {
                 String str = sc.nextLine();
                 String[] arr = str.split(" ");
@@ -39,10 +41,10 @@ public class InnerFunctions {
     public void writeToFile() {
         //System.out.println("file with DataBase was updated");
 
-        File file = new File("src/main/resources/qweqwe1.txt");
+        File file = new File("C:\\qweqwe1.txt");
         file.delete();
 
-        try (FileWriter writer = new FileWriter("src/main/resources/qweqwe1.txt")) {
+        try (FileWriter writer = new FileWriter("C:\\qweqwe1.txt")) {
             for (Task task : listOfTasks) {
                 writer.write(task.toStringFileFormat() + "\n");
             }
@@ -58,6 +60,12 @@ public class InnerFunctions {
             String str = scan.nextLine();
             if (str.equals("0")) {
                 return gc;
+            }
+            Pattern p = Pattern.compile("([0-9]{1,2})\\.\\1 \\1:\\1");
+            Matcher m = p.matcher(str);
+            if (!m.matches()){
+                System.out.println("Wrong input, try again please");
+                continue;
             }
             String[] input = str.split("[ :.]");
 
