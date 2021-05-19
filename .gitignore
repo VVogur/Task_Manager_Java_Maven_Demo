@@ -33,3 +33,4 @@ src/qwe/
 .idea/
 *.MF
 target/
+src/main/java/META-INF/
