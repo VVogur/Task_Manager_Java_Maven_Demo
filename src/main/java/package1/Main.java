@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
         Alarm w = new Alarm();
         PodKapotom podKapotom = new PodKapotom(new InnerFunctions());
@@ -45,8 +44,12 @@ public class Main {
                     break;
                 }
                 case "7":{
-                    GetWeather q = new GetWeather();
-                    q.weather();
+                    WeatherManager.start();
+//                            weather = new WeatherManager();
+//                    weather.start();
+//                    weather.showWeatherMenu();
+//                    weather.getCurrentWeather();
+                    break;
                 }
                 case "q": {
                     return;
