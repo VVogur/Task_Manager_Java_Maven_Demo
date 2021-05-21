@@ -13,10 +13,10 @@ public class Alarm {
         t = new Thread() {
             public void run() {
                 while (true) {
-                    Calendar d = new GregorianCalendar();
-                    int hours = d.get(Calendar.HOUR_OF_DAY);
-                    int mins = d.get(Calendar.MINUTE);
-                    int sec = d.get(Calendar.SECOND);
+                    Calendar now = new GregorianCalendar();
+                    int hours = now.get(Calendar.HOUR_OF_DAY);
+                    int mins = now.get(Calendar.MINUTE);
+                    int sec = now.get(Calendar.SECOND);
                     if (a == hours && b == mins && c == sec) {
                         JOptionPane.showMessageDialog(null, str);
                         break;

@@ -61,13 +61,13 @@ public class InnerFunctions {
             if (str.equals("0")) {
                 return gc;
             }
-            Pattern p = Pattern.compile("([0-9]{1,2})\\.\\1 \\1:\\1");
+            Pattern p = Pattern.compile("[0-9]{1,2}\\.[0-9]{1,2} [0-9]{1,2}-[0-9]{1,2}");
             Matcher m = p.matcher(str);
             if (!m.matches()){
                 System.out.println("Wrong input, try again please");
                 continue;
             }
-            String[] input = str.split("[ :.]");
+            String[] input = str.split("[ \\-.]");
 
             try {
                 int month = Integer.parseInt(input[0]);
@@ -148,7 +148,7 @@ public class InnerFunctions {
                 String answer = scan.nextLine();
                 switch (answer) {
                     case "1": {
-                        System.out.println("Enter new date and time of a task: mm.dd hh:mm");
+                        System.out.println("Enter new date and time of a task: mm.dd hh-mm");
                         Calendar gc = createDateOfTask();
                         if (gc == null) return;
                         task.setCalendar(gc);
@@ -178,7 +178,7 @@ public class InnerFunctions {
 
     public void addTask() {
         System.out.println("(Enter '0' to return to main menu)\n");
-        System.out.println("Enter date and time of a task: mm.dd hh:mm");
+        System.out.println("Enter date and time of a task: mm.dd hh-mm");
 
         Calendar gc = createDateOfTask();
         if (gc == null) return;

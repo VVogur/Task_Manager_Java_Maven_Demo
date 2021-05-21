@@ -10,8 +10,12 @@ public class Main {
         PodKapotom podKapotom = new PodKapotom(new InnerFunctions());
         System.out.println("\nHello dear friend, I am a console task manager.\n" +
                 "Hope you will enjoy using this app ;)");
+        String check = "Correct input";
         while (true) {
-            printMainMenu(); // тут похимичить надо, чтобы красиво все выводилось на экран, когда приходим в главое меню
+            if(check.equals("Correct input")){
+            printMainMenu();// тут похимичить надо, чтобы красиво все выводилось на экран, когда приходим в главое меню
+            }
+            check = "Correct input";
             String str = sc.nextLine();
             switch (str) {
                 case "1": {
@@ -52,6 +56,7 @@ public class Main {
                 }
                 default: {
                     System.out.println("Wrong input, try again please");
+                    check = "Wrong input";
                 }
             }
 
@@ -66,7 +71,7 @@ public class Main {
         System.out.println("Enter '2' to create new task");
         System.out.println("Enter '3' to edit task");
         System.out.println("Enter '4' to delete task");
-        System.out.println("Enter '5' to open some Windows applications");
+        System.out.println("Enter '5' to open some desktop applications");
         System.out.println("Enter '6' to set an alarm");
         System.out.println("Enter '7' to check weather");
         System.out.println("Enter 'q' to exit");
